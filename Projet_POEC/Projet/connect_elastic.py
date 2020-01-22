@@ -22,3 +22,24 @@ es = Elasticsearch([hostUser],http_auth=('elastic', mdpUser),scheme="https",port
 print(es.info())
 print(es.ping())
 
+request_body = {
+        "settings" : {
+            "number_of_shards": 3,
+            "number_of_replicas": 1
+        },
+        "settings": {"max_result_window": "100000"},
+        'mappings': {
+                'properties': {
+                    'siren':  {'type': 'long'},
+                    'nic':  {'type': 'integer'},
+                    'siret':  {'type': 'long'},
+                    'numeroVoieEtablissement':  {'type': 'integer'},
+                    'typeVoieEtablissement':  {'type': 'text'},
+                    'libelleVoieEtablissement':  {'type': 'text'},
+                    'codePostalEtablissement':  {'type': 'integer'},
+                    'libelleCommuneEtablissement':  {'type': 'text'},
+                    'coordonnees' :{ 'type':'geo_point'}}
+                    }}
+
+es.indices.create(index='test', body= request_body)
+
