@@ -60,5 +60,9 @@ values = {'siret' : str(0), 'denominationUsuelleEtablissement' : ' ', 'numeroVoi
        'trancheEffectifsEtablissement' : ' ', 'etatAdministratifEtablissement' : ' ', 'coordonnees': str(0)}
 df4=df4.fillna(value=values)
 print(df4.head(5))
-
+print()
+print('ReInitialisation de l\'index')
+print()
+df5=df4.reset_index(drop=True)
+print(df5.head(5))
 
