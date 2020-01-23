@@ -12,9 +12,9 @@ files = {
 data = {'columns': ('numeroVoieEtablissement',
                      'typeVoieEtablissement',
                       'libelleVoieEtablissement',
-                      'codePostalEtablissement',
                        'libelleCommuneEtablissement'),
-        'result_columns': ('latitude','longitude')
+        'result_columns': ('latitude','longitude'),
+        'postcode': 'codePostalEtablissement'
 }
 
 res = requests.post('https://api-adresse.data.gouv.fr/search/csv/', files=files, data=data)
