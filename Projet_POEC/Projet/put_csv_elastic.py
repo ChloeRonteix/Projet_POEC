@@ -4,9 +4,7 @@ Created on 23 janv. 2020
 @author: Administrateur
 '''
 from elasticsearch import Elasticsearch
-from Projet import connect_elastic
-from connect_elastic import *
-from Projet import read_prepare_csv_SIRENE
+from connect_elastic import es
 from read_prepare_csv_SIRENE import df5
 
 request_body = {
