@@ -3,9 +3,22 @@ Created on 23 janv. 2020
 
 @author: Administrateur
 '''
-curl -X POST -F data=@mycsvfile.csv -F columns='numeroVoieEtablissement' columns='typeVoieEtablissement' columns='libelleVoieEtablissement',
-                                    'codePostalEtablissement', 'libelleCommuneEtablissement' -F columns=postcode -F result_columns=result_id 
-https://api-adresse.data.gouv.fr/search/csv/
+import requests
+
+files = {
+    'data': (open('mycsvfile.csv', 'rb').read())
+    }
+
+data = {'columns': ('numeroVoieEtablissement',
+                     'typeVoieEtablissement',
+                      'libelleVoieEtablissement',
+                      'codePostalEtablissement',
+                       'libelleCommuneEtablissement'),
+        'result_columns': ('latitude','longitude')
+}
+
+res = requests.post('https://api-adresse.data.gouv.fr/search/csv/', files=files, data=data)
+print(res.text)
 
 
 
