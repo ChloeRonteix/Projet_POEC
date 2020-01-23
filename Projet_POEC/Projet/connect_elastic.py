@@ -7,7 +7,7 @@ connection vers elastic_search
 '''
 
 from elasticsearch import Elasticsearch
-
+import certifi
 '''
 #connection to Elasticsearch sur le cloud
 def connect_to_elastic():

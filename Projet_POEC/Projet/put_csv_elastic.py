@@ -7,6 +7,8 @@ from elasticsearch import Elasticsearch
 from connect_elastic import es
 from read_prepare_csv_SIRENE import df5
 
+es.indices.delete(index='test')
+
 request_body = {
         "settings" : {
             "number_of_shards": 3,
@@ -16,10 +18,10 @@ request_body = {
         'mappings': {
                 'properties': {
                     'siret':  {'type': 'long'},
-                    'numeroVoieEtablissement':  {'type': 'integer'},
+                    'numeroVoieEtablissement':  {'type': 'text'},
                     'typeVoieEtablissement':  {'type': 'text'},
                     'libelleVoieEtablissement':  {'type': 'text'},
-                    'codePostalEtablissement':  {'type': 'integer'},
+                    'codePostalEtablissement':  {'type': 'text'},
                     'libelleCommuneEtablissement':  {'type': 'text'}
                     }}
 }
@@ -27,11 +29,7 @@ request_body = {
 es.indices.create(index='test', body= request_body)
 
 
-
-#es.indices.delete(index='test')
-
-
-#creation du distionnaire a envoyer vers elastic
+#creation du dictionnaire a envoyer vers elastic
 bulk_data = []
 for idx, row in df5.iterrows():
         data_dict = {}
