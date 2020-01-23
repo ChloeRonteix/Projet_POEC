@@ -8,7 +8,7 @@ from Projet import connect_elastic
 from connect_elastic import *
 from Projet import read_prepare_csv_SIRENE
 from read_prepare_csv_SIRENE import df5
-'''
+
 request_body = {
         "settings" : {
             "number_of_shards": 3,
@@ -17,21 +17,22 @@ request_body = {
         "settings": {"max_result_window": "100000"},
         'mappings': {
                 'properties': {
-                    'siren':  {'type': 'long'},
-                    'nic':  {'type': 'integer'},
                     'siret':  {'type': 'long'},
                     'numeroVoieEtablissement':  {'type': 'integer'},
                     'typeVoieEtablissement':  {'type': 'text'},
                     'libelleVoieEtablissement':  {'type': 'text'},
                     'codePostalEtablissement':  {'type': 'integer'},
-                    'libelleCommuneEtablissement':  {'type': 'text'},
-                    'coordonnees' :{ 'type':'geo_point'}}
+                    'libelleCommuneEtablissement':  {'type': 'text'}
                     }}
-
+}
 
 es.indices.create(index='test', body= request_body)
+
+
+
 #es.indices.delete(index='test')
-'''
+
+
 #creation du distionnaire a envoyer vers elastic
 bulk_data = []
 for idx, row in df5.iterrows():

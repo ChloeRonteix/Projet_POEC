@@ -22,15 +22,12 @@ print(str(df.columns))
 print()
 print('Selection des colonnes pertinentes')
 print()
-df2 = df[['siret', 'denominationUsuelleEtablissement', 
+df2 = df[['siret', 
           'numeroVoieEtablissement',
           'typeVoieEtablissement', 
           'libelleVoieEtablissement',
           'codePostalEtablissement', 
           'libelleCommuneEtablissement', 
-          'libelleCommuneEtrangerEtablissement',
-          'libellePaysEtrangerEtablissement',
-          'trancheEffectifsEtablissement',
           'etatAdministratifEtablissement'
           ]]
 print(str(df2.columns))
@@ -48,21 +45,22 @@ df4 = df3.drop_duplicates(subset='siret', keep="first")
 print('taille de la base: nombre de lignes = '+ str(df4.shape[0]) + ', nombre de colonnes = '+ str(df4.shape[1]))
 print()
 #print(df4.head(5))
-print('Ajout de la colonne coordonnees')
-df4['coordonnees']=np.nan
-df4['coordonnees']=df4['coordonnees'].astype(object)
+#print('Ajout de la colonne coordonnees')
+#df4['coordonnees']=np.nan
+#df4['coordonnees']=df4['coordonnees'].astype(object)
 print()
 print(df4.head(5))
 print()
 print('Remplacer les valeurs NaN')
-values = {'siret' : str(0), 'denominationUsuelleEtablissement' : ' ', 'numeroVoieEtablissement' : str(0),'typeVoieEtablissement' : ' ','libelleVoieEtablissement' : ' ',
-       'codePostalEtablissement' : str(0), 'libelleCommuneEtablissement' : ' ', 'libelleCommuneEtrangerEtablissement' : ' ', 'libellePaysEtrangerEtablissement' : ' ',
-       'trancheEffectifsEtablissement' : ' ', 'etatAdministratifEtablissement' : ' ', 'coordonnees': str(0)}
+values = {'siret' : ' ', 'numeroVoieEtablissement' : ' ','typeVoieEtablissement' : ' ','libelleVoieEtablissement' : ' ',
+       'codePostalEtablissement' : ' ', 'libelleCommuneEtablissement' : ' ', 'etatAdministratifEtablissement' : ' '}
 df4=df4.fillna(value=values)
 print(df4.head(5))
 print()
 print('ReInitialisation de l\'index')
 print()
 df5=df4.reset_index(drop=True)
+#enlever la colonne etatAdministratifEtablissement
+df5= df5.drop(columns='etatAdministratifEtablissement')
 print(df5.head(5))
 
