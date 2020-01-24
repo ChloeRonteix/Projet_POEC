@@ -6,6 +6,7 @@ Created on 23 janv. 2020
 from Projet import connect_elastic
 from connect_elastic import es
 
+
 res = es.search(index="test", body={ "_source" : [
                                     'siret','numeroVoieEtablissement',
                                     'typeVoieEtablissement', 'libelleVoieEtablissement',

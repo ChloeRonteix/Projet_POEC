@@ -4,7 +4,7 @@ Created on 24 janv. 2020
 @author: Administrateur
 '''
 from elasticsearch import Elasticsearch
-from read_prepare_csv_SIRENE import df5
+from read_prepare_big_csv_SIRENE import df5
 from connect_elastic import es
 from datetime import datetime
 

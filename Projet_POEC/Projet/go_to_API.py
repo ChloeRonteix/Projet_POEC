@@ -38,4 +38,4 @@ for idx, row in df2.iterrows():
     latitude = row['latitude']
     longitude = row['longitude']
     print(id_et,longitude,latitude)
-    print(es.update(index='test', id=id_et, body= {"doc":{"location": [longitude,latitude]}}))
+    print(es.update(index='test2', id=id_et, body= {"doc":{"location": [longitude,latitude]}}))

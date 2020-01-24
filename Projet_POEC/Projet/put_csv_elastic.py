@@ -5,7 +5,7 @@ Created on 23 janv. 2020
 '''
 from elasticsearch import Elasticsearch
 from connect_elastic import es
-from read_prepare_csv_SIRENE import df5
+from read_prepare_csv import df5
 
 
 #creation du dictionnaire a envoyer vers elastic
@@ -16,7 +16,7 @@ for idx, row in df5.iterrows():
         data_dict[df5.columns[i]] = str(row[i])
         op_dict = {
             "index": {
-            "_index": "test",
+            "_index": "test2",
             "_type": "_doc"
             }
         }
@@ -25,5 +25,5 @@ for idx, row in df5.iterrows():
 print(bulk_data)
 
 #envoi des donnees vers elastic
-es.bulk(index='test', body=bulk_data)
+es.bulk(index='test2', body=bulk_data)
 
