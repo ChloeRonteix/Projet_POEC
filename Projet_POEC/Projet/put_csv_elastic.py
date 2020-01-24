@@ -22,7 +22,7 @@ for idx, row in df5.iterrows():
         }
         bulk_data.append(op_dict)
         bulk_data.append(data_dict)
-print(bulk_data)
+#print(bulk_data)
 
 #envoi des donnees vers elastic
 es.bulk(index='test2', body=bulk_data)
