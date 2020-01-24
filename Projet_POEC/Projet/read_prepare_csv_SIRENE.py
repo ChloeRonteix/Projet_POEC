@@ -5,8 +5,8 @@ Created on 22 janv. 2020
 '''
 import pandas as pd
 pd.set_option('display.max_columns', 5)
-pd.set_option('display.max_rows', 500)
-pd.set_option('display.width', 150)
+#pd.set_option('display.max_rows', 500)
+#pd.set_option('display.width', 150)
 import numpy as np
 
 df=pd.read_csv('StockEtablissement_utf8.csv', dtype={'siret': 'str', 
@@ -15,7 +15,7 @@ df=pd.read_csv('StockEtablissement_utf8.csv', dtype={'siret': 'str',
           'libelleVoieEtablissement': 'str',
           'codePostalEtablissement': 'str', 
           'libelleCommuneEtablissement': 'str', 
-          'etatAdministratifEtablissement': 'str'}, nrows=150)
+          'etatAdministratifEtablissement': 'str'})
 #print('taille de la base: '+ str(df.shape))
 print('taille de la base: nombre de lignes = '+ str(df.shape[0]) + ', nombre de colonnes = '+ str(df.shape[1]))
 
