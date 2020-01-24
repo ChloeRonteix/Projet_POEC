@@ -12,7 +12,7 @@ res = es.search(index="test", body={ "_source" : [
                                     'numeroVoieEtablissement',
                                     'typeVoieEtablissement', 'libelleVoieEtablissement',
                                     'codePostalEtablissement', 'libelleCommuneEtablissement'], 
-                                    "query": { "bool": { "must_not": { "exists": { "field": "coordonnees" }}}}}, size=5)
+                                    "query": { "bool": { "must_not": { "exists": { "field": "location" }}}}}, size=15)
 sample = res['hits']['hits']
 
 with open('mycsvfile.csv', 'w', newline='') as csvfile:

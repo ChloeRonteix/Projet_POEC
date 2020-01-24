@@ -9,7 +9,13 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.width', 150)
 import numpy as np
 
-df=pd.read_csv('StockEtablissement_utf8.csv', nrows=150)
+df=pd.read_csv('StockEtablissement_utf8.csv', dtype={'siret': 'str', 
+          'numeroVoieEtablissement': 'str',
+          'typeVoieEtablissement': 'str', 
+          'libelleVoieEtablissement': 'str',
+          'codePostalEtablissement': 'str', 
+          'libelleCommuneEtablissement': 'str', 
+          'etatAdministratifEtablissement': 'str'}, nrows=150)
 #print('taille de la base: '+ str(df.shape))
 print('taille de la base: nombre de lignes = '+ str(df.shape[0]) + ', nombre de colonnes = '+ str(df.shape[1]))
 
@@ -62,5 +68,5 @@ print()
 df5=df4.reset_index(drop=True)
 #enlever la colonne etatAdministratifEtablissement
 df5= df5.drop(columns='etatAdministratifEtablissement')
-print(df5.head(5))
+print(df5.head(10))
 

@@ -10,5 +10,5 @@ res = es.search(index="test", body={ "_source" : [
                                     'siret','numeroVoieEtablissement',
                                     'typeVoieEtablissement', 'libelleVoieEtablissement',
                                     'codePostalEtablissement', 'libelleCommuneEtablissement'], 
-                                    "query": { "bool": { "must_not": { "exists": { "field": "coordonnees" }}}}}, size=5)
+                                    "query": { "bool": { "must_not": { "exists": { "field": "location" }}}}}, size=5)
 print(res)
