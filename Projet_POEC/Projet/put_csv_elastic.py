@@ -22,7 +22,9 @@ request_body = {
                     'typeVoieEtablissement':  {'type': 'text'},
                     'libelleVoieEtablissement':  {'type': 'text'},
                     'codePostalEtablissement':  {'type': 'text'},
-                    'libelleCommuneEtablissement':  {'type': 'text'}
+                    'libelleCommuneEtablissement':  {'type': 'text'},
+                    'latitude': {'type': 'geo_point'},
+                    'longitude': {'type': 'geo_point'}
                     }}
 }
 
@@ -32,13 +34,13 @@ es.indices.create(index='test', body= request_body)
 #creation du dictionnaire a envoyer vers elastic
 bulk_data = []
 for idx, row in df5.iterrows():
-        data_dict = {}
-        for i in range(len(row)):
-            data_dict[df5.columns[i]] = str(row[i])
-            op_dict = {
+    data_dict = {}
+    for i in range(len(row)):
+        data_dict[df5.columns[i]] = str(row[i])
+        op_dict = {
             "index": {
-                "_index": "test",
-                "_type": "_doc"
+            "_index": "test",
+            "_type": "_doc"
             }
         }
         bulk_data.append(op_dict)
