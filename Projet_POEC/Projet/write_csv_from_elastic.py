@@ -8,11 +8,11 @@ from connect_elastic import es
 import csv
 
 # recherche elastic visee
-res = es.search(index="test2", body={ "_source" : [
+res = es.search(index="test3", body={ "_source" : [
                                     'numeroVoieEtablissement',
                                     'typeVoieEtablissement', 'libelleVoieEtablissement',
                                     'codePostalEtablissement', 'libelleCommuneEtablissement'], 
-                                    "query": { "bool": { "must_not": { "exists": { "field": "location" }}}}}, size=15)
+                                    "query": { "bool": { "must_not": { "exists": { "field": "location" }}}}}, size=100000)
 sample = res['hits']['hits']
 
 with open('mycsvfile.csv', 'w', newline='') as csvfile:
