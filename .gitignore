@@ -7,3 +7,5 @@
 .idea/workspace.xml
 Projet_POEC/Projet/__pycache__/connect_elastic.cpython-37.pyc
 Projet_POEC/Projet/__pycache__/read_prepare_csv_SIRENE.cpython-37.pyc
+/.vs/slnx.sqlite
+/.vs/Projet_POEC/config/applicationhost.config
